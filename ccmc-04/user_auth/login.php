@@ -6,12 +6,12 @@ $password_ok = "pass01";
 session_start();
 
 
-$id ="";
+$id = "";
 if (isset($_REQUEST["id"])) 
 {
     $id = $_REQUEST["id"];
 }
-$password ="";
+$password = "";
 if (isset($_REQUEST["password"])) {
     $password = $_REQUEST["password"];
 }
@@ -21,16 +21,11 @@ if (($id === $id_ok) and ($password === $password_ok)) {
     $isLogined = true;
 }
 
-//print_r($_SESSION);
-echo "loger: ".$_SESSION["id"];
+print_r($_SESSION);
+
 
 ?>
-<style>
-   .size1 {height="100px";
-       
-   }
-    
-</style>
+
 
 <!DOCTYPE html>
 <html lang="ja">
@@ -42,14 +37,13 @@ echo "loger: ".$_SESSION["id"];
 	<link rel="stylesheet" href="../../assets/css/ccmc-04.css" />
 </head>
 <body>
-    <div class="size1">
-	<h1>簡単なユーザ認証</h1>
+    <h1>簡単なユーザ認証</h1>
 	<?php if ($isLogined === true) { ?>
 	<p>ようこそ、<?= $id ?>  さん</p>
 	<p><a href="logout.php">ログアウトする</a></p>
     <?php } else { ?>
+    <p>ログインに失敗しました</p>
     <p><a href="entry.html">ログインページ</a></p>
 	<?php }?>
-	</div>
 </body>
 </html>
